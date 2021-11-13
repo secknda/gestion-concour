@@ -12,6 +12,9 @@ import { EditionsComponent } from './editions/editions.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NetworkingService } from 'src/service/networking.service';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { ThematiqueComponent } from './thematique/thematique.component';
+import { ProjetsComponent } from './projets/projets.component';
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ConcoursComponent,
     EditionsComponent,
+    LoginComponent,
+    ThematiqueComponent,
+    ProjetsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NetworkingService } from 'src/service/networking.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class EditionsComponent implements OnInit {
 
   editionsList: any[] = [];
   searchEdition = "";
-  concours: any;
+  admin: any;
 
   object: any = {
     "nom_edition": "",
@@ -23,53 +24,24 @@ export class EditionsComponent implements OnInit {
     }
   };
 
-  adminObject: any = {
-    "prenom": "",
-    "nom": "",
-    "login": "",
-    "password": "",
-    "edition": {
-      "nom_edition": ""
-    },
-    "concours": {
-      "nom_concours": ""
-    }
-  };
+  constructor(private networkingService: NetworkingService, private router: Router) {
 
-  constructor(private networkingService: NetworkingService) {
-    this.concours = this.networkingService.getData("CONCOURS_TO_EDITION");
   }
 
   ngOnInit(): void {
-    console.log("DATA : ");
-    this.networkingService.get("editions/" + this.concours.alias_concours).subscribe((data: any) => {
+    this.admin = this.networkingService.getData("CURRENT_ADMIN");
+    console.log("REQUEST : " + "editions/" + this.admin.alias_concours);
+    this.networkingService.get("editions/" + this.admin.alias_concours).subscribe((data: any) => {
       this.editionsList = data;
       console.log("DATA : " + JSON.stringify(data));
     });
   }
 
+  gotoEditionMoreInfo(oneEdition: any) {
+    console.log("ALIAS : " + oneEdition);
+    this.networkingService.saveData("EDITION_TO_MORE_INFOS", oneEdition);
 
-  saveEdition() {
-    this.object.concours.nom_concours = this.concours.nom_concours;
-    this.object.concours.alias_concours = this.concours.alias_concours;
-    console.log("OBJECT " + JSON.stringify(this.object));
-    this.networkingService.add("concours/add", JSON.stringify(this.object)).subscribe((data: any) => {
-      // REDIRECT
-      console.log("DATA : " + JSON.stringify(data));
-    });
-  }
-
-  addAdmin() {
-    this.adminObject.concours.nom_concours = this.concours.nom_concours;
-    console.log("OBJECT " + JSON.stringify(this.adminObject));
-    this.networkingService.add("admins/add", JSON.stringify(this.adminObject)).subscribe((data: any) => {
-      // REDIRECT
-      console.log("DATA : " + JSON.stringify(data));
-    });
-  }
-
-  selectEdition(edition: any) {
-    this.adminObject.edition.nom_edition = edition.nom_edition;
+    this.router.navigate(["/editions"]);
   }
 
 }

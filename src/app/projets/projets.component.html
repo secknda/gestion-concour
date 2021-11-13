@@ -5,7 +5,16 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2><b>Editions</b></h2>
+                        <h2><b>Projets</b></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#addThematiqueModal" class="btn btn-success
+                            mr-1"
+                            data-toggle="modal"><i class="material-icons">&#xE147;</i>
+                            <span>Ajouter</span></a>
+                        <a href="#deleteEmployeeModal" class="btn btn-danger"
+                            data-toggle="modal"><i class="material-icons">&#xE15C;</i>
+                            <span>Supprimer</span></a>
                     </div>
                 </div>
             </div>
@@ -19,18 +28,15 @@
                             </span>
                         </th>
                         <th>Nº</th>
-                        <th>Nom</th>
-                        <th>Début </th>
-                        <th>Fin Vote</th>
-                        <th>Fin</th>
-                        <th>Autres</th>
+                        <th>Titre</th>
+                        <th>Équipe</th>
+                        <th>Thématique</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let oneEdition of editionsList; index
-                        as
-                        index">
+                    <tr *ngFor="let oneProjet of projetList; index
+                        as index">
                         <td>
                             <span class="custom-checkbox">
                                 <input type="checkbox" id="checkbox1"
@@ -39,11 +45,9 @@
                             </span>
                         </td>
                         <td>{{index+1}}</td>
-                        <td>{{oneEdition.nom_edition}}</td>
-                        <td>{{oneEdition.date_debut}}</td>
-                        <td>{{oneEdition.date_fin_vote}}</td>
-                        <td>{{oneEdition.date_fin}}</td>
-                        <td><a (click)="gotoEditionMoreInfo(oneEdition)">Plus</a></td>
+                        <td>{{oneProjet.titre}}</td>
+                        <td><a href="">{{oneProjet.equipe.nom_equipe}}</a></td>
+                        <td>{{oneProjet.nom_thematique}}</td>
                         <td>
                             <a href="#editEmployeeModal" class="edit mr-1"
                                 data-toggle="modal"><i class="fas fa-edit"
@@ -108,7 +112,7 @@
                             data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <p>Etes-vous sur de supprimer ce concours ?</p>
+                        <p>Etes-vous sur de supprimer cette thématique ?</p>
                         <p class="text-warning"><small>Cette action n'est
                                 pas reversible.</small></p>
                     </div>
@@ -125,3 +129,35 @@
 
 </div>
 <!-- /.container-fluid -->
+
+<!-- Ajouter Modal HTML -->
+<div id="addThematiqueModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Ajouter administrateur</h4>
+                    <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label>Nom</label>
+                            <input type="text" class="form-control"
+                                name="object.nom_thematique"
+                                [(ngModel)]="object.nom_thematique"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default"
+                        data-dismiss="modal" value="Annuler">
+                    <input type="submit" class="btn btn-success"
+                        value="Ajouter">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

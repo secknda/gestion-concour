@@ -10,6 +10,7 @@ export class NetworkingService {
   readonly BASE_URL = "http://127.0.0.1:5454/";
 
   private subject = new BehaviorSubject<any>("");
+  adminData: any;
 
   constructor(private http: HttpClient) { }
 

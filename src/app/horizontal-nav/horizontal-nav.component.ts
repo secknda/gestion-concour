@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NetworkingService } from 'src/service/networking.service';
 
 @Component({
   selector: 'app-horizontal-nav',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HorizontalNavComponent implements OnInit {
 
-  constructor() { }
+  adminData: any = {};
+
+  constructor(private networkingService: NetworkingService) {
+    this.adminData = this.networkingService.getData("CURRENT_ADMIN");
+  }
 
   ngOnInit(): void {
   }

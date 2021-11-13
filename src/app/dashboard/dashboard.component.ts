@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  adminData: any = {};
+
+  constructor() {
+    console.log("DATA" + this.adminData);
+  }
 
   ngOnInit(): void {
+    this.adminData = localStorage.getItem("CURRENT_ADMIN");
+    console.log("DATA" + this.adminData);
   }
 
 }
