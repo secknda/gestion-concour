@@ -9,6 +9,11 @@ import { NetworkingService } from 'src/service/networking.service';
 })
 export class ConcoursComponent implements OnInit {
 
+  concoursObject: any = {
+    "nom_concours": "",
+    "alias_concours": ""
+  };
+
   concoursList: any[] = [];
   searchConcours = "";
 
@@ -22,9 +27,17 @@ export class ConcoursComponent implements OnInit {
     });
   }
 
-  gotoEditionList(alias_concours: string) {
-    console.log("ALIAS : " + alias_concours);
-    this.networkingService.saveData("CONCOURS_ALIAS", alias_concours);
+  saveConcours() {
+    console.log("OBJECT " + JSON.stringify(this.concoursObject));
+    this.networkingService.add("concours/add", JSON.stringify(this.concoursObject)).subscribe((data: any) => {
+      this.router.navigate(["/concours"]);
+      console.log("DATA : " + JSON.stringify(data));
+    });
+  }
+
+  gotoEditionList(concours: string) {
+    console.log("ALIAS : " + concours);
+    this.networkingService.saveData("CONCOURS_TO_EDITION", concours);
 
     this.router.navigate(["/editions"]);
   }

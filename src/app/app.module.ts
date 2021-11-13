@@ -11,6 +11,7 @@ import { ConcoursComponent } from './concours/concours.component';
 import { EditionsComponent } from './editions/editions.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NetworkingService } from 'src/service/networking.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NetworkingService } from 'src/service/networking.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

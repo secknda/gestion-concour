@@ -51,7 +51,8 @@
                         <td>{{oneEdition.date_debut}}</td>
                         <td>{{oneEdition.date_fin_vote}}</td>
                         <td>{{oneEdition.date_fin}}</td>
-                        <td><a href="#addAdminModal" data-toggle="modal">Ajouter</a></td>
+                        <td><a href="#addAdminModal" data-toggle="modal"
+                                (click)="selectEdition(oneEdition)">Ajouter</a></td>
                         <td>
                             <a href="#editEmployeeModal" class="edit mr-1"
                                 data-toggle="modal"><i class="fas fa-edit"
@@ -80,23 +81,39 @@
                         <div class="form-group">
                             <label>Nom</label>
                             <input type="text" class="form-control"
+                                name="nom_edition"
+                                [(ngModel)]="object.nom_edition"
                                 required>
                         </div>
                         <div class="form-group">
-                            <label>Edition</label>
+                            <label>Début</label>
                             <input type="date" class="form-control"
+                                name="date_debut"
+                                [(ngModel)]="object.date_debut"
                                 required>
                         </div>
                         <div class="form-group">
-                            <label>Coach</label>
-                            <input type="text" class="form-control"
+                            <label>Fin vote</label>
+                            <input type="date" class="form-control"
+                                name="date_fin_vote"
+                                [(ngModel)]="object.date_fin_vote"
                                 required>
                         </div>
+
+                        <div class="form-group">
+                            <label>Fin vote</label>
+                            <input type="date" class="form-control"
+                                name="date_fin"
+                                [(ngModel)]="object.date_fin"
+                                required>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default"
                             data-dismiss="modal" value="Annuler">
                         <input type="submit" class="btn btn-success"
+                            (click)="saveEdition()"
                             value="Ajouter">
                     </div>
                 </form>
@@ -182,22 +199,30 @@
                             <div class="form-group col-6">
                                 <label>Prénom</label>
                                 <input type="text" class="form-control"
+                                    name="adminObject.prenom"
+                                    [(ngModel)]="adminObject.prenom"
                                     required>
                             </div>
                             <div class="form-group col-6">
                                 <label>Nom</label>
                                 <input type="text" class="form-control"
+                                    name="adminObject.nom"
+                                    [(ngModel)]="adminObject.nom"
                                     required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Login</label>
                             <input type="text" class="form-control"
+                                name="adminObject.login"
+                                [(ngModel)]="adminObject.login"
                                 required>
                         </div>
                         <div class="form-group">
                             <label>Mot de passe</label>
                             <input type="text" class="form-control"
+                                name="adminObject.password"
+                                [(ngModel)]="adminObject.password"
                                 required>
                         </div>
                     </div>
@@ -205,6 +230,7 @@
                         <input type="button" class="btn btn-default"
                             data-dismiss="modal" value="Annuler">
                         <input type="submit" class="btn btn-success"
+                            (click)="addAdmin()"
                             value="Ajouter">
                     </div>
                 </form>
