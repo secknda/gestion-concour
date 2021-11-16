@@ -1,6 +1,6 @@
 <!-- Content Row -->
 <div class="row">
-    <div class="container">
+    <div class="container table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
@@ -23,7 +23,6 @@
                         <th>Début </th>
                         <th>Fin Vote</th>
                         <th>Fin</th>
-                        <th>Autres</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -43,14 +42,9 @@
                         <td>{{oneEdition.date_debut}}</td>
                         <td>{{oneEdition.date_fin_vote}}</td>
                         <td>{{oneEdition.date_fin}}</td>
-                        <td><a (click)="gotoEditionMoreInfo(oneEdition)">Plus</a></td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit mr-1"
-                                data-toggle="modal"><i class="fas fa-edit"
-                                    data-toggle="tooltip" title="Edit"></i></a>
-                            <a href="#deleteEmployeeModal" class="delete"
-                                data-toggle="modal"><i class="fas fa-trash-alt"
-                                    data-toggle="tooltip" title="Delete"></i></a>
+                            <button class="btn btn-warning"><i class="fa
+                                    fa-save"></i></button>
                         </td>
                     </tr>
 

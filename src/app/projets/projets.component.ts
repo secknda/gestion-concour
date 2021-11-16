@@ -27,7 +27,12 @@ export class ProjetsComponent implements OnInit {
     this.networkingService.get("projets/" + this.adminData.alias_concours + "/" + this.adminData.nom_edition).subscribe((data: any) => {
       this.projetList = data;
       console.log("DATA : " + JSON.stringify(data));
+      this.router.navigate(['/projet']);
     });
+  }
+
+  preselectionne(oneProjet: any) {
+    // this.oneProjet.status = true;
   }
 
 }

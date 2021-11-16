@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ThematiqueComponent } from './thematique/thematique.component';
 import { ProjetsComponent } from './projets/projets.component';
+import { AjouterProjetComponent } from './ajouter-projet/ajouter-projet.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ProjetsComponent } from './projets/projets.component';
     LoginComponent,
     ThematiqueComponent,
     ProjetsComponent,
+    AjouterProjetComponent,
   ],
   imports: [
     BrowserModule,

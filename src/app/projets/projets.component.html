@@ -8,7 +8,8 @@
                         <h2><b>Projets</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#addThematiqueModal" class="btn btn-success
+                        <a [routerLink]="['/ajouterProjet']" class="btn
+                            btn-success
                             mr-1"
                             data-toggle="modal"><i class="material-icons">&#xE147;</i>
                             <span>Ajouter</span></a>
@@ -31,6 +32,7 @@
                         <th>Titre</th>
                         <th>Équipe</th>
                         <th>Thématique</th>
+                        <th>Présélection</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -48,6 +50,8 @@
                         <td>{{oneProjet.titre}}</td>
                         <td><a href="">{{oneProjet.equipe.nom_equipe}}</a></td>
                         <td>{{oneProjet.nom_thematique}}</td>
+                        <td><button class="btn btn-warning"
+                                (click)="preselectionne(oneProjet)">Présélection</button></td>
                         <td>
                             <a href="#editEmployeeModal" class="edit mr-1"
                                 data-toggle="modal"><i class="fas fa-edit"

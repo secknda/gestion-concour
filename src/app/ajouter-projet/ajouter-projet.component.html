@@ -1,0 +1,214 @@
+<div class="col-sm-6">
+  <h2><b>Ajouter un projet</b></h2>
+</div>
+<hr>
+<!-- ------- -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link tabSelected active" id="project-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#project" type="button" role="tab"
+      aria-controls="profile" aria-selected="false">Projet <span
+        class="badge bg-gradient-primary">1/3</span></button>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link tabSelected" id="equipe-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#equipe" type="button" role="tab"
+      aria-controls="home"
+      aria-selected="true">Équipe <span class="badge bg-gradient-primary">2/3</span></button>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link tabSelected" id="participants-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#participants" type="button" role="tab"
+      aria-controls="home"
+      aria-selected="true">Participants <span class="badge
+        bg-gradient-primary">3/3</span></button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade tabSelectedContent project-tab show active"
+    id="project"
+    role="tabpanel"
+    aria-labelledby="project-tab">
+
+    <div class="row mt-3">
+      <div class="form-group col-5">
+        <label>Thémamtique</label>
+        <select name="projet.thematique.nom_thematique"
+          [(ngModel)]="projet.thematique.nom_thematique"
+          class="form-control"
+          required>
+          <option value="{{oneThematique.nom_thematique}}"
+            *ngFor="let oneThematique of thematiqueList">{{oneThematique.nom_thematique}}</option>
+        </select>
+      </div>
+      <div class="form-group col-7">
+        <label>Titre</label>
+        <input type="text" class="form-control" name="projet.titre"
+          [(ngModel)]="projet.titre"
+          placeholder="Titre du projet" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6">
+        <label>Description</label>
+        <textarea name="projet.description"
+          [(ngModel)]="projet.description"
+          class="form-control" rows="5"
+          placeholder="Ajouter une description ici..." required>
+        </textarea>
+      </div>
+      <div class="form-group col-6">
+        <label>Objectif</label>
+        <textarea name="objectif" [(ngModel)]="projet.objectif"
+          class="form-control" rows="5"
+          placeholder="Votre objectif" required>
+        </textarea>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-pane fade tabSelectedContent equipe-tab" id="equipe"
+    role="tabpanel"
+    aria-labelledby="equipe-tab">
+
+    <div class="row mt-3">
+      <div class="form-group col-5">
+        <label>Nom</label>
+        <input type="text" class="form-control"
+          name="projet.equipe.nom_equipe"
+          [(ngModel)]="projet.equipe.nom_equipe"
+          placeholder="Nom de l'équipe" required>
+      </div>
+      <div class="form-group col-7">
+        <label>Email</label>
+        <input type="email" class="form-control"
+          name="projet.equipe.email_equipe"
+          [(ngModel)]="projet.equipe.email_equipe"
+          placeholder="Email de l'équipe" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade show tabSelectedContent participants-tab"
+    id="participants"
+    role="tabpanel"
+    aria-labelledby="participants-tab">
+
+    <button type="submit" class="btn btn-primary float-right m-3"
+      (click)="saveInDatabase()">Enregistrer</button>
+    <div class="table-responsive">
+      <div class="table-wrapper mt-3">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Prénom</th>
+              <th>Nom</th>
+              <th>Genre</th>
+              <th>Niveau</th>
+              <th>Profile</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let oneParticipant_ of participants; index as index">
+              <td>{{oneParticipant_.prenom}}</td>
+              <td>{{oneParticipant_.nom}}</td>
+              <td>{{oneParticipant_.genre}}</td>
+              <td>{{oneParticipant_.niveau}}</td>
+              <td>{{oneParticipant_.profile}}</td>
+              <td>{{oneParticipant_.email_participant}}</td>
+              <td>
+                <a (click)="deleteONList(index)" class="delete"
+                  data-toggle="modal"><i class="fas
+                    fa-trash-alt"
+                    data-toggle="tooltip" title="Delete"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-group">
+                  <input type="text"
+                    name="onePaticipant.prenom"
+                    [(ngModel)]="onePaticipant.prenom"
+                    class="form-control"
+                    placeholder="Prénom" required>
+                </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <input type="text"
+                    name="onePaticipant.nom"
+                    [(ngModel)]="onePaticipant.nom"
+                    class="form-control"
+                    placeholder="Nom" required>
+                </div>
+              </td>
+              <td>
+                <select name="onePaticipant.profile"
+                  [(ngModel)]="onePaticipant.genre"
+                  class="form-control" required>
+                  <option value="F">F</option>
+                  <option value="M">M</option>
+                </select>
+              </td>
+              <td>
+                <select class="form-control"
+                  name="onePaticipant.niveau"
+                  [(ngModel)]="onePaticipant.niveau"
+                  required>
+                  <option value="Licence 1">Licence 1</option>
+                  <option value="Licence 2">Licence 2</option>
+                  <option value="Licence 3">Licence 3</option>
+                  <option value="Master 1">Master 1</option>
+                  <option value="Master 2">Master 2</option>
+                  <option value="Doctorat 1">Doctorat 1</option>
+                  <option value="Doctorat 2">Doctorat 2</option>
+                  <option value="Doctorat 3">Doctorat 3</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </td>
+              <td>
+                <select name="onePaticipant.profile"
+                  [(ngModel)]="onePaticipant.profile"
+                  class="form-control" required>
+                  <option value="Backend">Backend</option>
+                  <option value="Frontend">Frontend</option>
+                  <option value="Designer">Designer</option>
+                  <option value="Manager">Manager</option>
+                </select>
+              </td>
+              <td>
+                <div class="form-group">
+                  <input type="text"
+                    name="onePaticipant.email_participant"
+                    [(ngModel)]="onePaticipant.email_participant"
+                    class="form-control"
+                    placeholder="Email">
+                </div>
+              </td>
+              <td>
+                <a (click)="addOnParticipantList()" class="edit
+                  mr-1"
+                  data-toggle="modal">
+                  <i class="fas fa-save" data-toggle="tooltip"
+                    title="Enregistrer"></i></a>
+                <a href="#deleteEmployeeModal" class="delete"
+                  data-toggle="modal"><i class="fas
+                    fa-trash-alt"
+                    data-toggle="tooltip" title="Delete"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

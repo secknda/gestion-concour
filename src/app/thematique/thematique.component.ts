@@ -34,6 +34,7 @@ export class ThematiqueComponent implements OnInit {
     this.networkingService.add("thematiques/add/" + this.adminData.alias_concours, JSON.stringify(this.object)).subscribe((data: any) => {
       // REDIRECT
       console.log("DATA : " + JSON.stringify(data));
+      this.ngOnInit();
     });
   }
 
