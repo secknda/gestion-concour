@@ -5,6 +5,7 @@ import { ConcoursComponent } from './concours/concours.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditionsComponent } from './editions/editions.component';
 import { LoginComponent } from './login/login.component';
+import { ProjetByThematiqueComponent } from './projet-by-thematique/projet-by-thematique.component';
 import { ProjetsComponent } from './projets/projets.component';
 import { ThematiqueComponent } from './thematique/thematique.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "thematique", component: ThematiqueComponent },
   { path: "projet", component: ProjetsComponent },
   { path: "ajouterProjet", component: AjouterProjetComponent },
+  { path: "projetByTheme", component: ProjetByThematiqueComponent },
 
 ];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NetworkingService } from 'src/service/networking.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     "password": ""
   };
 
-  constructor(private networkingService: NetworkingService) { }
+  constructor(private networkingService: NetworkingService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,9 @@ export class LoginComponent implements OnInit {
       this.networkingService.adminData = JSON.stringify(data[0]);
       console.log("DATA : " + JSON.stringify(data[0]));
       localStorage.setItem("CURRENT_ADMIN", JSON.stringify(data[0]));
+
+      alert("Bienvenue " + data[0].prenom + " " + data[0].nom);
+      this.router.navigate(['/home']);
     });
   }
 

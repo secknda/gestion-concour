@@ -1,77 +1,77 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark
-    accordion" id="accordionSidebar">
+  accordion" id="accordionSidebar">
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center
-        justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Challenger</div>
-    </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/home']">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Tableau de bord</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Interface
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center
+    justify-content-center" href="index.html">
+    <div class="sidebar-brand-icon rotate-n-15">
+      <i class="fas fa-laugh-wink"></i>
     </div>
+    <div class="sidebar-brand-text mx-3">{{adminData.nom_concours}}</div>
+  </a>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/concours']" aria-expanded="true">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <span>Concours</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#"
-            data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-graduation-cap"></i>
-            <span>Édition</span>
-        </a>
-        <div id="collapseTwo" class="collapse"
-            aria-labelledby="headingTwo"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Édition:</h6>
-                <a class="collapse-item" [routerLink]="['/']">En cours</a>
-                <a class="collapse-item" [routerLink]="['/editions']">Lister</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/thematique']" aria-expanded="true">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <span>Thématiques</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/projet']"
-            aria-expanded="true">
-            <i class="fas fa-hands-helping"></i>
-            <span>Projets</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="partenaires.html"
-            aria-expanded="true">
-            <i class="fas fa-hands-helping"></i>
-            <span>Partenaires</span>
-        </a>
-    </li>
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
+
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item active">
+    <a class="nav-link" [routerLink]="['/home']">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Tableau de bord</span></a>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Interface
+  </div>
+
+  <!-- Nav Item - Pages Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/concours']" aria-expanded="true">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <span>Concours</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#"
+      data-toggle="collapse" data-target="#collapseTwo"
+      aria-expanded="true" aria-controls="collapseTwo">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Édition</span>
+    </a>
+    <div id="collapseTwo" class="collapse"
+      aria-labelledby="headingTwo"
+      data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Édition:</h6>
+        <a class="collapse-item" [routerLink]="['/']">En cours</a>
+        <a class="collapse-item" [routerLink]="['/editions']">Lister</a>
+      </div>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/thematique']" aria-expanded="true">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <span>Thématiques</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/projet']"
+      aria-expanded="true">
+      <i class="fas fa-hands-helping"></i>
+      <span>Projets</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="partenaires.html"
+      aria-expanded="true">
+      <i class="fas fa-hands-helping"></i>
+      <span>Partenaires</span>
+    </a>
+  </li>
 </ul>
 <!-- End of Sidebar -->

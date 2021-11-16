@@ -87,13 +87,14 @@ export class AjouterProjetComponent implements OnInit {
     console.log("======= PROJET : " + JSON.stringify(this.projet));
     this.networkingService.add("projets/add/" + this.adminData.alias_concours, this.projet).subscribe((data) => {
       console.log("RETOURE = ");
+      alert("Projet enregistré avec succès !");
       // Save in participant
       this.participants.forEach(participant_ => {
         participant_.equipe.nom_equipe = this.projet.equipe.nom_equipe;
         participant_.edition.nom_edition = this.adminData.nom_edition;
 
         this.networkingService.add("participants/add/" + this.adminData.alias_concours, participant_).subscribe((data) => {
-          alert("ONE PARTICIPANT: " + JSON.stringify(data));
+
         });
       });
     });

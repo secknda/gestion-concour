@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { ThematiqueComponent } from './thematique/thematique.component';
 import { ProjetsComponent } from './projets/projets.component';
 import { AjouterProjetComponent } from './ajouter-projet/ajouter-projet.component';
+import { ProjetByThematiqueComponent } from './projet-by-thematique/projet-by-thematique.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { AjouterProjetComponent } from './ajouter-projet/ajouter-projet.componen
     ThematiqueComponent,
     ProjetsComponent,
     AjouterProjetComponent,
+    ProjetByThematiqueComponent,
   ],
   imports: [
     BrowserModule,

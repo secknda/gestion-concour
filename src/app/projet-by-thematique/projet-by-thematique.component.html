@@ -5,10 +5,11 @@
       <div class="table-title">
         <div class="row">
           <div class="col-sm-6">
-            <h2><b>Thématique</b></h2>
+            <h2><b>Projets</b></h2>
           </div>
           <div class="col-sm-6">
-            <a href="#addThematiqueModal" class="btn btn-success
+            <a [routerLink]="['/ajouterProjet']" class="btn
+              btn-success
               mr-1"
               data-toggle="modal"><i class="material-icons">&#xE147;</i>
               <span>Ajouter</span></a>
@@ -28,15 +29,15 @@
               </span>
             </th>
             <th>Nº</th>
-            <th>Nom</th>
-            <th>Projets</th>
+            <th>Titre</th>
+            <th>Équipe</th>
+            <th>Présélection</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let oneThematique of thematiqueList; index
-            as
-            index">
+          <tr *ngFor="let oneProjet of projetList; index
+            as index">
             <td>
               <span class="custom-checkbox">
                 <input type="checkbox" id="checkbox1"
@@ -45,10 +46,10 @@
               </span>
             </td>
             <td>{{index+1}}</td>
-            <td>{{oneThematique.nom_thematique}}</td>
-            <td><a style="cursor: pointer; color: blue;"
-                (click)="gotoProjet(oneThematique)">Liste
-                des projets</a></td>
+            <td>{{oneProjet.projets.titre}}</td>
+            <td><a href="">{{oneProjet.projets.equipe.nom_equipe}}</a></td>
+            <td><button class="btn btn-warning"
+                (click)="preselectionne(oneProjet)">Présélection</button></td>
             <td>
               <a href="#editEmployeeModal" class="edit mr-1"
                 data-toggle="modal"><i class="fas fa-edit"
@@ -128,39 +129,4 @@
     </div>
   </div>
 
-</div>
-<!-- /.container-fluid -->
-
-<!-- Ajouter Modal HTML -->
-<div id="addThematiqueModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form>
-        <div class="modal-header">
-          <h4 class="modal-title">Ajouter thématique</h4>
-          <button type="button" class="close"
-            data-dismiss="modal" aria-hidden="true">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="form-group col-6">
-              <label>Nom</label>
-              <input type="text" class="form-control"
-                name="object.nom_thematique"
-                [(ngModel)]="object.nom_thematique"
-                required>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <input type="button" class="btn btn-default"
-            data-dismiss="modal" value="Annuler">
-          <input type="submit" class="btn btn-success"
-            data-dismiss="modal"
-            (click)="addThematique()"
-            value="Ajouter">
-        </div>
-      </form>
-    </div>
-  </div>
 </div>

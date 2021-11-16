@@ -38,4 +38,10 @@ export class ThematiqueComponent implements OnInit {
     });
   }
 
+  gotoProjet(theme: any) {
+    this.networkingService.saveData("CURRENT_THEME", theme);
+
+    this.router.navigate(['/projetByTheme']);
+  }
+
 }
