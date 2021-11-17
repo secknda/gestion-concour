@@ -23,6 +23,11 @@ export class ProjetByThematiqueComponent implements OnInit {
     });
   }
 
-  preselectionne(oneProjet: any) { }
+  preselectionne(oneProjet: any) {
+    var response = confirm("Voulez vous vraiment présélectionner ce projet");
+    if (response != null) {
+      // this.networkingService.add()
+    }
+  }
 
 }

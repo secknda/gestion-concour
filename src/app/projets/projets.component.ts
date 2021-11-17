@@ -12,12 +12,32 @@ export class ProjetsComponent implements OnInit {
   adminData: any;
   projetList: any[] = [];
 
+  projetObject: any;
+
   object: any = {
     "nom_thematique": "",
     "edition": {
       "nom_edition": ""
     }
   }
+
+  coash1: any = {
+    "prenom": "",
+    "nom": "",
+    "genre": "",
+    "email": "",
+    "specialite": "",
+    "note": 0
+  };
+
+  coash2: any = {
+    "prenom": "",
+    "nom": "",
+    "genre": "",
+    "email": "",
+    "specialite": "",
+    "note": 0
+  };
 
   constructor(private networkingService: NetworkingService, private router: Router) {
     this.adminData = this.networkingService.getData("CURRENT_ADMIN");
@@ -31,8 +51,14 @@ export class ProjetsComponent implements OnInit {
     });
   }
 
-  preselectionne(oneProjet: any) {
-    // this.oneProjet.status = true;
+  preselectionner(oneProjet: any) {
+    this.projetObject = oneProjet;
+  }
+
+  savePreselection() {
+    this.networkingService.update("projets/preselectionner/" + this.adminData + "/" + this.adminData + "/" + this.adminData).subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }

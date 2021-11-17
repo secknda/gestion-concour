@@ -13,9 +13,6 @@
               mr-1"
               data-toggle="modal"><i class="material-icons">&#xE147;</i>
               <span>Ajouter</span></a>
-            <a href="#deleteEmployeeModal" class="btn btn-danger"
-              data-toggle="modal"><i class="material-icons">&#xE15C;</i>
-              <span>Supprimer</span></a>
           </div>
         </div>
       </div>
@@ -48,16 +45,26 @@
             <td>{{index+1}}</td>
             <td>{{oneProjet.projets.titre}}</td>
             <td><a href="">{{oneProjet.projets.equipe.nom_equipe}}</a></td>
-            <td><button class="btn btn-warning"
-                (click)="preselectionne(oneProjet)">Présélection</button></td>
             <td>
-              <a href="#editEmployeeModal" class="edit mr-1"
-                data-toggle="modal"><i class="fas fa-edit"
-                  data-toggle="tooltip" title="Edit"></i></a>
-              <a href="#deleteEmployeeModal" class="delete"
-                data-toggle="modal"><i class="fas fa-trash-alt"
-                  data-toggle="tooltip" title="Delete"></i></a>
+              <button class="btn btn-warning"
+                (click)="preselectionne(oneProjet)">
+
+                <div *ngIf="oneProjet.status==true; then thenBlock else
+                  elseBlock"></div>
+                <ng-template #thenBlock>Préselectionné</ng-template>
+                <ng-template #elseBlock>Non présélectionné</ng-template>
+              </button>
             </td>
+
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default"
+                data-dismiss="modal" value="Annuler">
+
+              <input type="submit" class="btn btn-success"
+                data-dismiss="modal"
+                value="Ajouter">
+            </div>
+
           </tr>
 
         </tbody>

@@ -26,7 +26,7 @@
               Participants</div>
             <div class="h5 mb-0
               font-weight-bold
-              text-gray-800">100</div>
+              text-gray-800">{{statistique.nb_participants}}</div>
           </div>
           <div class="col-auto">
             <i class="fas fa-calendar fa-2x
@@ -52,7 +52,7 @@
               Projets</div>
             <div class="h5 mb-0
               font-weight-bold
-              text-gray-800">30</div>
+              text-gray-800">{{statistique.nb_projets}}</div>
           </div>
           <div class="col-auto">
             <i class="fas fa-user-friends
@@ -112,7 +112,7 @@
               Votes</div>
             <div class="h5 mb-0
               font-weight-bold
-              text-gray-800">18</div>
+              text-gray-800">{{statistique.nb_votes}}</div>
           </div>
           <div class="col-auto">
             <i class="fas fa-vote-yea fa-2x
@@ -136,7 +136,7 @@
         align-items-center
         justify-content-between">
         <h6 class="m-0 font-weight-bold
-          text-primary">Earnings Overview</h6>
+          text-primary">Statistiques des votes</h6>
         <div class="dropdown no-arrow">
           <a class="dropdown-toggle" href="#"
             role="button"
@@ -180,7 +180,7 @@
         align-items-center
         justify-content-between">
         <h6 class="m-0 font-weight-bold
-          text-primary">Revenue Sources</h6>
+          text-primary">Statistiques de GENRE</h6>
         <div class="dropdown no-arrow">
           <a class="dropdown-toggle" href="#"
             role="button"
@@ -215,15 +215,11 @@
         <div class="mt-4 text-center small">
           <span class="mr-2">
             <i class="fas fa-circle
-              text-primary"></i> Direct
+              text-primary"></i> Homme
           </span>
           <span class="mr-2">
             <i class="fas fa-circle
-              text-success"></i> Social
-          </span>
-          <span class="mr-2">
-            <i class="fas fa-circle
-              text-info"></i> Referral
+              text-success"></i> Femme
           </span>
         </div>
       </div>
@@ -262,7 +258,6 @@
               <td>{{onEquipe.nom_thematique}}</td>
               <td>{{onEquipe.note_final}}</td>
             </tr>
-
           </tbody>
         </table>
       </div>
