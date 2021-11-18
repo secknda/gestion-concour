@@ -72,7 +72,7 @@ export class ProjetByThematiqueComponent implements OnInit {
     console.log("EVALUSATION : " + JSON.stringify(this.evalusationObject));
     this.networkingService.update("projets/preselectionner/" + this.adminData.alias_concours + "/" + this.adminData.nom_edition + "/" + this.oneProjet.projets.titre, JSON.stringify(this.evalusationObject)).subscribe((data) => {
       alert("Projet préselectionné avec succès !!!");
-    })
+    });
   }
 
 }

@@ -52,7 +52,7 @@
             <td>
               <button class="btn btn-sm btn-warning"
                 href="#addCoachModel" data-toggle="modal"
-                (click)="preselectionner(oneProjet)">
+                (click)="preselectionne(oneProjet)">
 
                 <div *ngIf="oneProjet.status == true; then thenBlock else
                   elseBlock"></div>
@@ -204,10 +204,12 @@
             </div>
             <div class="form-group col-6">
               <label>Genre</label>
-              <input type="text" class="form-control"
-                name="coash1.genre"
+              <select name="coash1.genre"
                 [(ngModel)]="coash1.genre"
-                required>
+                class="form-control" required>
+                <option value="F">F</option>
+                <option value="M">M</option>
+              </select>
             </div>
             <div class="form-group col-6">
               <label>Email</label>
@@ -245,10 +247,126 @@
             </div>
             <div class="form-group col-6">
               <label>Genre</label>
-              <input type="text" class="form-control"
-                name="coash2.genre"
+              <select name="coash2.genre"
                 [(ngModel)]="coash2.genre"
+                class="form-control" required>
+                <option value="F">F</option>
+                <option value="M">M</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label>Email</label>
+              <input type="text" class="form-control"
+                name="coash2.email"
+                [(ngModel)]="coash2.email"
                 required>
+            </div>
+            <div class="form-group col-6">
+              <label>Spécialité</label>
+              <input type="text" class="form-control"
+                name="coash2.specialite"
+                [(ngModel)]="coash2.specialite"
+                required>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <input type="button" class="btn btn-default"
+            data-dismiss="modal" value="Annuler">
+
+          <input type="submit" class="btn btn-success"
+            data-dismiss="modal"
+            value="Ajouter"
+            (click)="savePreselection()">
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Ajouter Coach -->
+<div id="addCoachModel" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">Ajouter Coach</h4>
+          <button type="button" class="close"
+            data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- Coash 1 -->
+          <div class="row">
+            <h3 class="align-center">Informations Coach 1</h3>
+            <div class="form-group col-6">
+              <label>Prénom</label>
+              <input type="text" class="form-control"
+                name="coash1.prenom"
+                [(ngModel)]="coash1.prenom"
+                required>
+            </div>
+            <div class="form-group col-6">
+              <label>Nom</label>
+              <input type="text" class="form-control"
+                name="coash1.nom"
+                [(ngModel)]="coash1.nom"
+                required>
+            </div>
+            <div class="form-group col-6">
+              <label>Genre</label>
+              <select name="coash1.genre"
+                [(ngModel)]="coash1.genre"
+                class="form-control" required>
+                <option value="F">F</option>
+                <option value="M">M</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label>Email</label>
+              <input type="text" class="form-control"
+                name="coash1.email"
+                [(ngModel)]="coash1.email"
+                required>
+            </div>
+            <div class="form-group col-6">
+              <label>Spécialité</label>
+              <input type="text" class="form-control"
+                name="coash1.specialite"
+                [(ngModel)]="coash1.specialite"
+                required>
+            </div>
+          </div>
+          <hr>
+          <br>
+          <!-- Coash 2 -->
+          <div class="row">
+            <h3 class="text-center">Informations Coach 2</h3>
+            <div class="form-group col-6">
+              <label>Prénom</label>
+              <input type="text" class="form-control"
+                name="coash2.prenom"
+                [(ngModel)]="coash2.prenom"
+                required>
+            </div>
+            <div class="form-group col-6">
+              <label>Nom</label>
+              <input type="text" class="form-control"
+                name="coash2.nom"
+                [(ngModel)]="coash2.nom"
+                required>
+            </div>
+            <div class="form-group col-6">
+              <label>Genre</label>
+              <select name="coash2.genre"
+                [(ngModel)]="coash2.genre"
+                class="form-control" required>
+                <option value="F">F</option>
+                <option value="M">M</option>
+              </select>
             </div>
             <div class="form-group col-6">
               <label>Email</label>
