@@ -56,9 +56,9 @@ export class ProjetsComponent implements OnInit {
   }
 
   savePreselection() {
-    this.networkingService.update("projets/preselectionner/" + this.adminData + "/" + this.adminData + "/" + this.adminData).subscribe((data) => {
-      console.log(data);
-    });
+    // this.networkingService.update("projets/preselectionner/" + this.adminData + "/" + this.adminData + "/" + this.adminData).subscribe((data) => {
+    //   console.log(data);
+    // });
   }
 
 }

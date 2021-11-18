@@ -37,8 +37,8 @@ export class NetworkingService {
     return this.http.post(this.BASE_URL + route, parametres, { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) })
   }
 
-  update(route: string): Observable<any> {
-    return this.http.put(this.BASE_URL + route, { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) })
+  update(route: string, parametres: any): Observable<any> {
+    return this.http.put(this.BASE_URL + route, parametres, { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) })
   }
 
   get(route: string): Observable<any> {
