@@ -17,6 +17,7 @@ import { ThematiqueComponent } from './thematique/thematique.component';
 import { ProjetsComponent } from './projets/projets.component';
 import { AjouterProjetComponent } from './ajouter-projet/ajouter-projet.component';
 import { ProjetByThematiqueComponent } from './projet-by-thematique/projet-by-thematique.component';
+import { ProjetPreselectionnerComponent } from './projet-preselectionner/projet-preselectionner.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ProjetByThematiqueComponent } from './projet-by-thematique/projet-by-th
     ProjetsComponent,
     AjouterProjetComponent,
     ProjetByThematiqueComponent,
+    ProjetPreselectionnerComponent,
   ],
   imports: [
     BrowserModule,

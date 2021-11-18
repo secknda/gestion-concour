@@ -5,7 +5,7 @@
       <div class="table-title">
         <div class="row">
           <div class="col-sm-6">
-            <h2><b>Projets</b></h2>
+            <h2><b>Projets préselectionnés</b></h2>
           </div>
           <div class="col-sm-6">
             <a [routerLink]="['/ajouterProjet']" class="btn
@@ -51,9 +51,9 @@
                 elseBlock"></div>
               <ng-template #thenBlock><p class="text-warning">Préselectionné</p></ng-template>
               <ng-template #elseBlock>
-                <button class="btn btn-sm btn-danger"
+                <button class="btn btn-sm btn-warning"
                   href="#addCoachModel" data-toggle="modal"
-                  (click)="preselectionne(oneProjet)">
+                  (click)="selectionner(oneProjet)">
                   Non présélectionné
                 </button>
               </ng-template>
@@ -62,7 +62,8 @@
               <div *ngIf="oneProjet.status == true; then thenBlockNote else
                 elseBlockNote"></div>
               <ng-template #thenBlockNote>
-                <button class="btn btn-success btn-sm">Noter</button></ng-template>
+                <button class="btn btn-success btn-sm" href="#addCoachNoteModal"
+                  data-toggle="modal" (click)="selectionner(oneProjet)">Noter</button></ng-template>
               <ng-template #elseBlockNote></ng-template>
             </td>
           </tr>
@@ -391,6 +392,53 @@
             data-dismiss="modal"
             value="Ajouter"
             (click)="savePreselection()">
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- NOTER -->
+
+<!-- Ajouter Coach -->
+<div id="addCoachNoteModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">Ajouter Coach</h4>
+          <button type="button" class="close"
+            data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- Coash 1 -->
+          <div class="row">
+            <div class="form-group col-6">
+              <label>Coach 1</label>
+              <input type="number" class="form-control"
+                name="noteCoach1" max="20" min="1"
+                [(ngModel)]="noteCoach1"
+                required>
+            </div>
+            <div class="form-group col-6">
+              <label>Coach 2</label>
+              <input type="number" class="form-control"
+                name="noteCoach2" max="20" min="1"
+                [(ngModel)]="noteCoach2"
+                required>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <input type="button" class="btn btn-default"
+            data-dismiss="modal" value="Annuler">
+
+          <input type="submit" class="btn btn-success"
+            data-dismiss="modal"
+            value="Ajouter"
+            (click)="saveNote()">
         </div>
 
       </form>

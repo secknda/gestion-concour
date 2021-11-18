@@ -3,12 +3,11 @@ import { Router } from '@angular/router';
 import { NetworkingService } from 'src/service/networking.service';
 
 @Component({
-  selector: 'app-projets',
-  templateUrl: './projets.component.html',
-  styleUrls: ['./projets.component.css']
+  selector: 'app-projet-preselectionner',
+  templateUrl: './projet-preselectionner.component.html',
+  styleUrls: ['./projet-preselectionner.component.css']
 })
-
-export class ProjetsComponent implements OnInit {
+export class ProjetPreselectionnerComponent implements OnInit {
 
   adminData: any;
   projetList: any[] = [];
@@ -16,6 +15,9 @@ export class ProjetsComponent implements OnInit {
   projetObject: any;
 
   oneProjet: any;
+
+  noteCoach1: any;
+  noteCoach2: any;
 
   object: any = {
     "nom_thematique": "",
@@ -58,16 +60,15 @@ export class ProjetsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.networkingService.get("projets/" + this.adminData.alias_concours + "/" + this.adminData.nom_edition).subscribe((data: any) => {
+    this.networkingService.get("projets/list_peselectionner/" + this.adminData.alias_concours + "/" + this.adminData.nom_edition).subscribe((data: any) => {
       this.projetList = data;
       console.log("DATA : " + JSON.stringify(data));
-      this.router.navigate(['/projet']);
     });
   }
 
-  preselectionne(oneProjet: any) {
+  selectionner(oneProjet: any) {
     this.oneProjet = oneProjet;
-    console.log("PROJET A MODIFIER : " + JSON.stringify(this.oneProjet))
+    console.log("PROJET SELECTIONNÉ : " + JSON.stringify(this.oneProjet))
   }
 
   savePreselection() {
@@ -85,6 +86,20 @@ export class ProjetsComponent implements OnInit {
     this.networkingService.update("projets/preselectionner/" + this.adminData.alias_concours + "/" + this.adminData.nom_edition + "/" + this.oneProjet.titre, JSON.stringify(this.evalusationObject)).subscribe((data) => {
       alert("Projet préselectionné avec succès !!!");
     });
+  }
+
+  saveNote() {
+    console.log("NOTES 1 : " + this.noteCoach1);
+    console.log("NOTES 2 : " + this.noteCoach2);
+
+    if (this.noteCoach1 > 20 || this.noteCoach1 < 1 || this.noteCoach2 > 20 || this.noteCoach2 < 1) {
+
+      alert("Les notes doivent être comprises entre 1 et 20.");
+    } else {
+      this.networkingService.updateNoParam("projets/noter/" + this.adminData.alias_concours + "/" + this.adminData.nom_edition + "/" + this.oneProjet.equipe.nom_equipe + "/" + this.noteCoach1 + "/" + this.noteCoach2).subscribe((data) => {
+        alert("Notes bien enregistrées !!!");
+      })
+    }
   }
 
 

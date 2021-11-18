@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NetworkingService } from 'src/service/networking.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   nbFemme!: any;
   nbHomme!: any;
 
-  constructor(private networkingService: NetworkingService) {
+  constructor(private networkingService: NetworkingService, private router: Router) {
     //
     this.adminData = this.networkingService.getData("CURRENT_ADMIN");
     this.networkingService.get("evaluations/general/" + this.adminData.alias_concours + "/" + this.adminData.nom_edition).subscribe((data) => {
@@ -52,6 +53,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  getProjetPreselectionner() {
+    console.log("GOTO PROJET PRESELECTIONNER...");
+    this.router.navigate(['/projetPreselectionner']);
   }
 
 }

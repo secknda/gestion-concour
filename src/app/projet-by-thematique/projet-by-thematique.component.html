@@ -46,25 +46,24 @@
             <td>{{oneProjet.projets.titre}}</td>
             <td><a href="">{{oneProjet.projets.equipe.nom_equipe}}</a></td>
             <td>
-              <button class="btn btn-sm btn-warning"
-                href="#addCoachModel" data-toggle="modal"
-                (click)="preselectionne(oneProjet)">
-
-                <div *ngIf="oneProjet.projets.status == true; then thenBlock
-                  else
-                  elseBlock"></div>
-                <ng-template #thenBlock>Préselectionné</ng-template>
-                <ng-template #elseBlock>Non présélectionné</ng-template>
-              </button>
+              <div *ngIf="oneProjet.status == true; then thenBlock else
+                elseBlock"></div>
+              <ng-template #thenBlock><p class="text-warning">Préselectionné</p></ng-template>
+              <ng-template #elseBlock>
+                <button class="btn btn-sm btn-danger"
+                  href="#addCoachModel" data-toggle="modal"
+                  (click)="preselectionne(oneProjet)">
+                  Non présélectionné
+                </button>
+              </ng-template>
             </td>
-
             <td>
-              <a href="#editEmployeeModal" class="edit mr-1"
-                data-toggle="modal"><i class="fas fa-edit"
-                  data-toggle="tooltip" title="Edit"></i></a>
-              <a href="#deleteEmployeeModal" class="delete"
-                data-toggle="modal"><i class="fas fa-trash-alt"
-                  data-toggle="tooltip" title="Delete"></i></a>
+              <div *ngIf="oneProjet.status == true; then thenBlockNote
+                else
+                elseBlockNote"></div>
+              <ng-template #thenBlockNote>
+                <button class="btn btn-success btn-sm">Noter</button></ng-template>
+              <ng-template #elseBlockNote></ng-template>
             </td>
           </tr>
         </tbody>
