@@ -12,7 +12,7 @@ import { ThematiqueComponent } from './thematique/thematique.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "home", component: DashboardComponent },
+  { path: "accueil", component: DashboardComponent },
   { path: "concours", component: ConcoursComponent },
   { path: "editions", component: EditionsComponent },
   { path: "thematique", component: ThematiqueComponent },

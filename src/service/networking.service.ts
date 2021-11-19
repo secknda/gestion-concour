@@ -25,6 +25,10 @@ export class NetworkingService {
     return object;
   }
 
+  deleteData(key: any) {
+    localStorage.removeItem(key);
+  }
+
   sendDataToAnotherComponent(data: any) {
     this.subject.next(data);
   }

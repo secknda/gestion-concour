@@ -51,9 +51,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   getProjetPreselectionner() {
     console.log("GOTO PROJET PRESELECTIONNER...");

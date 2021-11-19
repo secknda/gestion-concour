@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("CURRENT_ADMIN", JSON.stringify(data[0]));
 
       alert("Bienvenue " + data[0].prenom + " " + data[0].nom);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/accueil']);
     });
   }
 

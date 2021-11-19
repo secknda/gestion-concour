@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NetworkingService } from 'src/service/networking.service';
 
 @Component({
@@ -10,11 +11,16 @@ export class HorizontalNavComponent implements OnInit {
 
   adminData: any = {};
 
-  constructor(private networkingService: NetworkingService) {
+  constructor(private networkingService: NetworkingService, private router: Router) {
     this.adminData = this.networkingService.getData("CURRENT_ADMIN");
   }
 
   ngOnInit(): void {
+  }
+
+  deconnexion() {
+    this.networkingService.deleteData("CURRENT_ADMIN");
+    this.router.navigate(['/']);
   }
 
 }
