@@ -29,7 +29,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/demo/chart-pie-demo.js"
+            ]
           },
           "configurations": {
             "production": {

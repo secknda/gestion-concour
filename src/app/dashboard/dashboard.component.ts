@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { NetworkingService } from 'src/service/networking.service';
 
@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
 
       console.log("Homme : " + JSON.stringify(this.nbHomme));
       console.log("Femme : " + JSON.stringify(this.nbFemme));
+
     });
 
     // nb genre
@@ -51,7 +52,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   getProjetPreselectionner() {
     console.log("GOTO PROJET PRESELECTIONNER...");
