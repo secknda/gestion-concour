@@ -10,8 +10,8 @@
     min-height: 100vh;
     width: 100vw;
     display: flex;
+    background: url('/Users/mac/Downloads/BLABLA/gestion_concours_superviseur-main/src/assets/ressources/jeuxC.jpeg') no-repeat; 
     align-items: center;
-    background: url('ressources/jeuxC.jpeg') no-repeat;
     justify-content: center;
     background-size: cover;
     background-position: center;
