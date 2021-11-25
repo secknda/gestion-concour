@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class NetworkingService {
 
-  readonly BASE_URL = "http://127.0.0.1:5454/";
+  readonly BASE_URL = "http://54.89.219.231:5454/";
 
   private subject = new BehaviorSubject<any>("");
   adminData: any;

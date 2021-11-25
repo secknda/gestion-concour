@@ -4,7 +4,7 @@ $(function () {
   Chart.defaults.global.defaultFontColor = '#858796';
 
   var nbHomme = 6;
-  var nbFemme = 1;
+  var nbFemme = 5;
 
   // Pie Chart Example
   var ctx = document.getElementById("myPieChart");

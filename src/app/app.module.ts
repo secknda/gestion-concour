@@ -19,7 +19,6 @@ import { AjouterProjetComponent } from './ajouter-projet/ajouter-projet.componen
 import { ProjetByThematiqueComponent } from './projet-by-thematique/projet-by-thematique.component';
 import { ProjetPreselectionnerComponent } from './projet-preselectionner/projet-preselectionner.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

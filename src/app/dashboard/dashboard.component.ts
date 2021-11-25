@@ -18,6 +18,8 @@ export class DashboardComponent implements OnInit {
   nbFemme!: any;
   nbHomme!: any;
 
+  chart: any;
+
   constructor(private networkingService: NetworkingService, private router: Router) {
     //
     this.adminData = this.networkingService.getData("CURRENT_ADMIN");

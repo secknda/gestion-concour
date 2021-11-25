@@ -6,73 +6,37 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="login.component.css">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    </head>
-    <body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.component.css">
+    <link rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous" />
+  </head>
+  <body>
 
-<img src="./assets/ressources/galsen.svg.png" class="logo">
+    <img src="./assets/ressources/galsen.svg.png" class="logo">
 
-<div class="form-container">
-    <form action="" id="form">
+    <div class="form-container">
+      <form action="" id="form">
         <h3>Connexion</h3>
 
         <i class="fas fa-user"></i>
-        <input type="text" placeholder="Nom de votre équipe" name="login" [(ngModel)]="adminAccess.login"/><br>
+        <input type="text" placeholder="Nom de votre équipe" name="login"
+          [(ngModel)]="adminAccess.login" /><br>
 
         <!-- <i class="fas fa-at"></i>
         <input type="email" placeholder="Email de votre équipe"/><br> -->
-
         <i class="fas fa-lock"></i>
-        <input type="password" placeholder="Mot de passe" name="password" [(ngModel)]="adminAccess.password"/><br>
+        <input type="password" placeholder="Mot de passe" name="password"
+          [(ngModel)]="adminAccess.password" /><br>
 
-        <input type="submit" value="Se connecter" (click)="connection()">
-        <!-- <button class="btn btn-info" (click)="connection()">Connexion</button> -->
-
-   </form>
-</div>
-
-<script>
-    var form = document.getElementById('form');
-    form.addEventListener('mousemove', (e)=>{
-        var x =(window.innerWidth/2 - e.pageX) / 12;
-        var y =(window.innerHeight/2 - e.pageY) / 12;
-
-        form.style.transform ='rotate('+ x + 'deg) rotateY('+ y + 'deg)';
-
-       });
-
-   form.addEventListener('mouseleave', function(){
-       form.style.transform ='rotate(0deg) rotateY(0deg)';
-   });
-    </script>
-</body>
-</html>
-
-<!-- <div>
-  <div class="container-first">
-    <h1><span> Le </span><span> jeu </span><span>concours </span><span> de
-        GAÏNDÉ 2000</span></h1>
-    <div class="container-btns">
-      <a href="register.html"><button class="btn-first b2">Se connecter</button></a>
+        <!-- <input type="submit" value="Se connecter" (click)="connection()"> -->
+        <button class="btn btn-info" (click)="connection()">Connexion</button>
+      </form>
     </div>
-  </div>
 
-  <img src="../../assets/ressources/galsen.svg.png" class="logo">
-
-
-  <ul class="medias">
-    <li class="bulle"><img src="../../assets/ressources/fb.svg"
-        class="logo-medias"></li>
-    <li class="bulle"><img src="../../assets/ressources/insta.svg"
-        class="logo-medias"></li>
-    <li class="bulle"><img src="../../assets/ressources/yt.svg"
-        class="logo-medias"></li>
-    <li class="bulle"><img src="../../assets/ressources/fb.svg"
-        class="logo-medias"></li>
-  </ul>
-
-</div> -->
+  </body>
+</html>
