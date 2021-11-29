@@ -18,6 +18,7 @@ import { ProjetsComponent } from './projets/projets.component';
 import { AjouterProjetComponent } from './ajouter-projet/ajouter-projet.component';
 import { ProjetByThematiqueComponent } from './projet-by-thematique/projet-by-thematique.component';
 import { ProjetPreselectionnerComponent } from './projet-preselectionner/projet-preselectionner.component';
+import { AngularTypewriterEffectModule } from 'angular-typewriter-effect';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProjetPreselectionnerComponent } from './projet-preselectionner/projet-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularTypewriterEffectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

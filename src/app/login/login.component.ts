@@ -14,6 +14,9 @@ export class LoginComponent implements OnInit {
     "password": ""
   };
 
+  title = 'angularTests';
+  list = ['Bienvenue sur le site du PTN', 'Entrez votre login et mot de passe pour vous connectez', "Ce site vous permet de gérer efficacement n'import quel challenge."]
+
   constructor(private networkingService: NetworkingService, private router: Router) { }
 
   ngOnInit(): void {
